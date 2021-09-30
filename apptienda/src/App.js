@@ -1,12 +1,16 @@
-import './App.css';
-import NavBar from './components/NavBar.js'
+import "./components/NavBar/NavBar.css";
+import NavBar from "./components/NavBar/NavBar";
+import ItemListContainer from "./components/ItemListContainer/ItemListContainer"
+import  "./components/ItemListContainer/ItemListContainer.css"
+import React from 'react'
 
-function App() {
+const App = () => {
   return (
-    <>
-    <NavBar/>
-    </>
-  );
+    <div>
+       <NavBar />
+       <ItemListContainer nombre= "Pedro" apellido= "Sanchez"/>
+    </div>
+  )
 }
-
 export default App;
+
