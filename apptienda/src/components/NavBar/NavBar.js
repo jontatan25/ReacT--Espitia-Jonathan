@@ -2,13 +2,14 @@
 import React from 'react'
 import CartWidget from '../CartWidget/CartWidget';
 
+
 const NavBar = () => {
   return (
     <>
   <header>
       <h1>Tienda de Retoque Fotográfico</h1>
       <CartWidget/>
-      <naviga>
+      <nav>
       <ul class="nav" >
           <li>Retoque</li>
           <li>Edición</li>
@@ -16,7 +17,8 @@ const NavBar = () => {
           <li>Mejora</li>
           <li>Restauración</li>
       </ul>
-      </naviga>
+      </nav>
+      
   </header>
     </>
   );
