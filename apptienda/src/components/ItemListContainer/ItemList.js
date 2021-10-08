@@ -32,7 +32,7 @@ function ItemList (){
     return item === 1 ? (
       <p>cargando</p>
     ) : (<div>
-        {item.map(it => <><img src={it.img} width="100 vw" /><Item title={it.title} price={it.price} /></> )}
+        {item.map(it => <><img src={it.img} width="300 px" /><Item title={it.title} price={it.price} /></> )}
         </div>)
 }
 

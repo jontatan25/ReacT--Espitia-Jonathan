@@ -7,7 +7,6 @@ const NavBar = () => {
   return (
     <>
   <header>
-      <h1>Tienda de Retoque Fotográfico</h1>
       <CartWidget/>
       <nav>
       <ul class="nav" >
