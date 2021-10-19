@@ -2,21 +2,31 @@
   margin: 0;
   padding: 0;
 }
+
+a:visited{
+  color:black;
+  text-decoration: none;
+  
+}
 h1{
   margin-bottom: 5vh;
 }
 
+nav{
+  margin-bottom: 13px;
+}
 ul { 
   display: flex;
   justify-content: space-around;
   padding: 0;
+  
 }
 li {
   padding: 8px;
   border:1px black solid;
   list-style-type: none;
   border-radius: 10px;
-  width: 20vw;
+  width: 15rem;
   text-align: center;
   background-color: #5F87BE;
   box-shadow: 0px 4px 4px rgb(32, 32, 32);
