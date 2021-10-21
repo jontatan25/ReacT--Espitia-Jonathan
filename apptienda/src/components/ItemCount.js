@@ -1,48 +1,18 @@
-import {useState} from "react"
+import React from "react"
 
-let stock = 5;
+const ItemCount = ({stock, initial, count, increase, decrease, onAdd}) =>{
 
-const ItemCount  = () => {
+    return(
+        <div className="card-count">
+            <h5>Cantidad:</h5>
+            <div className="d-flex p-2">
+            <button  onClick={decrease} disabled={count === initial} >-</button>
+              <div >{count}</div>
+              <button  onClick={increase} disabled={count === stock} >+</button>
+            </div>
+            <button className="_btn product-add" onClick={onAdd}>Agregar al Carrito</button>
 
-    const [estado,cambiarEstado] = useState(0)
-    
-    const sumarContador = () => {
-        cambiarEstado(estado + 1)
-    }
-    const restarContador = () => {
-        cambiarEstado(estado - 1)
-    }
-
-    if (estado <= 0 ){
-        return(
-            <>
-            <p>Cantidad:  {estado}</p>
-            <button onClick= "#">Restar</button>
-            <button onClick= {sumarContador}>Añadir</button>
-            <p>Stock = {stock}</p>
-            </>
-        )
-    }
-    if (estado >= stock ){
-
-        return(
-            <>
-            <p>Cantidad:  {estado}</p>
-            <button onClick= {restarContador}>Restar</button>
-            <button onClick= "#">Añadir</button>
-            <p>Stock = {stock}</p>
-            </>
-        )
-    }
-    if ((estado > 0 )&& (estado <= stock)){
-        
-        return(
-            <>
-            <p>Cantidad:  {estado}</p>
-            <button onClick= {restarContador}>Restar</button>
-            <button onClick= {sumarContador}>Añadir</button>
-            <p>Stock = {stock}</p>
-            </>
-        )}
+</div>
+)
 }
 export default ItemCount

@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import ItemCount from "../ItemCount";
 
 const Item = ({ title, price, img, id }) => {
   return (
@@ -16,8 +15,6 @@ const Item = ({ title, price, img, id }) => {
           </Link>
         </div>
       </div>
-
-      <ItemCount />
     </>
   );
 };

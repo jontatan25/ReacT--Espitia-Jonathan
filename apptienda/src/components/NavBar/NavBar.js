@@ -9,19 +9,19 @@ const NavBar = () => {
         <CartWidget />
         <nav>
           <ul class="nav">
-            <Link to="/category/retoque">
+            <Link className="navLink" to="/category/retoque">
               <li>Retoque</li>
             </Link>
-            <Link to="/category/edicion">
+            <Link className="navLink" to="/category/edicion">
               <li>Edición</li>
             </Link>
-            <Link to="/category/montaje">
+            <Link className="navLink" to="/category/montaje">
               <li>Montaje</li>
             </Link>
-            <Link to="/category/mejora">
+            <Link className="navLink" to="/category/mejora">
               <li>Mejora</li>
             </Link>
-            <Link to="/category/restauracion">
+            <Link className="navLink" to="/category/restauracion">
               <li>Restauración</li>
             </Link>
           </ul>
