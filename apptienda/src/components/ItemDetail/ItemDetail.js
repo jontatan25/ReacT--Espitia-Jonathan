@@ -1,9 +1,11 @@
 import ItemCount from "../ItemCount";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useCartContext } from "../../context/cartContext";
 
-const ItemDetail = ({ title, price, img, description, id }) => {
-  
+const ItemDetail = ({ name, price, category, id, img }) => {
+  const { cartList, addItem,removeItem,clear, isInCart} = useCartContext();
+
   const stocks = 10;
   const initial = 0;
   const [stock, setStock] = useState(stocks);
@@ -27,26 +29,43 @@ const ItemDetail = ({ title, price, img, description, id }) => {
   const onAdd = () => {
     if (count <= stocks) {
       setAdd(true);
+      addItem({
+        name: name,
+        price: price,
+        category: category,
+        id: id,
+        img: img,
+        cantidad: count,
+      });
     }
   };
 
   return (
     <>
       <div>
-        {title}
-        {img}
-        <p>{description}</p>
+        {name}
+        <p>descripcion</p>
         <p>{price}</p>
         <p>Detalles del producto con id:{id}</p>
-        {add ? <Link to= {'/cart'}><button className="btn-finalizar">Comprar Ahora</button></Link> :
-                    <ItemCount stock={stocks}
-                    initial={initial}
-                    count={count}
-                    increase={increase}
-                    decrease={decrease}
-                    onAdd={onAdd}
-                    />
-                }
+        {add ? (
+          <>
+            <Link to={"/cart"}>
+              <button className="btn-finalizar">Comprar Ahora</button>
+            </Link>
+            <Link className="_btn product-add" to="/">
+              <button className="_btn product-add">Seguir Comprando</button>
+            </Link>
+          </>
+        ) : (
+          <ItemCount
+            stock={stocks}
+            initial={initial}
+            count={count}
+            increase={increase}
+            decrease={decrease}
+            onAdd={onAdd}
+          />
+        )}
       </div>
     </>
   );
