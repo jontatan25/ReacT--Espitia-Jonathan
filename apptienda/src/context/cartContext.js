@@ -7,12 +7,12 @@ export const useCartContext = () => useContext(CartContext);
 const CartContextProvider = ({ children }) => {
   const [cartList, setCartList] = useState([]);
 
-  const increaseItemQuantity = (id) => {
+  // const increaseItemQuantity = (id) => {
     
-    console.log(cartList[id-1].cantidad)
-      // setCartList([...cartList,cartList[id-1].cantidad += 1]);
+  //   console.log(cartList[id-1].cantidad)
+  //     setCartList([...cartList,cartList[id-1].cantidad += 1]);
 
-  };
+  // };
 
   const addItem = (item) => {
     setCartList([...cartList, item]);
@@ -67,7 +67,7 @@ const CartContextProvider = ({ children }) => {
         isInCart,
         sumarTotalProductos,
         sumarTotalPrecio,
-        increaseItemQuantity
+        // increaseItemQuantity
       }}
     >
       {children}

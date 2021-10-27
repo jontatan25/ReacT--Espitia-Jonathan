@@ -41,7 +41,9 @@ const Cart = () => {
                                 -
                               </button>
                               <span cl>Cantidad: {f.cantidad}</span>
-                              <button type="button" class="btn btn-info" onClick={increaseItemQuantity(f.id)}>
+                              <button type="button" class="btn btn-info" 
+                              // onClick={increaseItemQuantity(f.id)}
+                              >
                                 +
                               </button>
                             </div>
