@@ -41,7 +41,7 @@ const App = () => {
   return (
     <CartContextProvider>
       <BrowserRouter>
-        <NavBar />
+        <NavBar/>
         <Switch>
           <Route exact path="/">
             <ItemListContainer nombre="Pedro" apellido="Sanchez" />

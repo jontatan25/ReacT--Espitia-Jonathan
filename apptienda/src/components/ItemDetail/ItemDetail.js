@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useCartContext } from "../../context/cartContext";
 
 const ItemDetail = ({ name, price, category, id, img }) => {
-  const { cartList, addItem} = useCartContext();
+  const {addItem,setToogle} = useCartContext();
 
   const stocks = 10;
   const initial = 0;
@@ -29,6 +29,7 @@ const ItemDetail = ({ name, price, category, id, img }) => {
   const onAdd = () => {
     if (count <= stocks) {
       setAdd(true);
+      setToogle(true);
       addItem({
         name: name,
         price: price,

@@ -1,14 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useCartContext } from "../../context/cartContext";
-import ItemCount from "../ItemCount";
 
 const Cart = () => {
-  const { cartList, addItem, removeItem, clear, isInCart, sumarTotalProductos, sumarTotalPrecio, increaseItemQuantity } =
+  const { cartList,setCartList, addItem, removeItem, clear, isInCart, sumarTotalProductos, sumarTotalPrecio, increaseItemQuantity,decreaseItemQuantity,setToogle } =
     useCartContext();
   return (
     <div className="container-fluid">
       {cartList.length > 0 ? (
+        setToogle(true),
         <div class="contanier-fluid">
           <div class="row">
             <div class="col-8">
@@ -37,12 +37,14 @@ const Cart = () => {
                           </div>
                           <div>
                             <div class="def-number-input number-input safari_only mb-0 w-100">
-                              <button type="button" class="btn btn-info">
+                              <button type="button" class="btn btn-info"
+                              onClick={()=>{decreaseItemQuantity(f.id)}}
+                              >
                                 -
                               </button>
                               <span cl>Cantidad: {f.cantidad}</span>
                               <button type="button" class="btn btn-info" 
-                              // onClick={increaseItemQuantity(f.id)}
+                              onClick={()=>{increaseItemQuantity(f.id)}}
                               >
                                 +
                               </button>
@@ -54,7 +56,7 @@ const Cart = () => {
                             <a
                               href="#!"
                               type="button"
-                              // onClick={removeItem(f.id)}
+                              onClick={()=>{removeItem(f.id)}}
                               class="remove-product card-link-secondary small text-uppercase mr-3"
                             >
                               <i class="fas fa-trash-alt mr-1">Remover Item</i>
@@ -98,6 +100,7 @@ const Cart = () => {
           </div>
         </div>
       ) : (
+        setToogle(false),
         <div>
           <h2>Aún no has agregado Items al Carro de compras</h2>
           <Link className="_btn product-add" to="/">
