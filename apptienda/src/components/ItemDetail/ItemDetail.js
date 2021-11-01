@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useCartContext } from "../../context/cartContext";
 
-const ItemDetail = ({ name, price, category, id, img }) => {
+const ItemDetail = ({ title, price, category, id, img }) => {
   const {addItem,setToogle} = useCartContext();
 
   const stocks = 10;
@@ -31,7 +31,7 @@ const ItemDetail = ({ name, price, category, id, img }) => {
       setAdd(true);
       setToogle(true);
       addItem({
-        name: name,
+        title: title,
         price: price,
         category: category,
         id: id,
@@ -44,7 +44,7 @@ const ItemDetail = ({ name, price, category, id, img }) => {
   return (
     <>
       <div>
-        {name}
+        {title}
         <p>descripcion</p>
         <p>{price}</p>
         <p>Detalles del producto con id:{id}</p>
