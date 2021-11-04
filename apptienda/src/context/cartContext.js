@@ -1,12 +1,20 @@
-import { createContext, useState, useContext } from "react";
-import React from "react";
+import { React,createContext, useState, useContext } from "react";
+import { getFirestore } from "../services/getFireBase";
+import firebase from "firebase";
+import "firebase/firestore";
+
+
 
 const CartContext = createContext([]);
+
+
 export const useCartContext = () => useContext(CartContext);
 
 const CartContextProvider = ({ children }) => {
   const [cartList, setCartList] = useState([]);
   const [toogle, setToogle] = useState(false);
+  const [userInfo, setUserInfo] = useState([{name:'nombre',phone:'telefono',mail:'correo'}])
+  const [finalOrder, setFinalOrder] = useState([]);
 
   const increaseItemQuantity = (id) => {
     const index = cartList.findIndex(
@@ -72,7 +80,39 @@ const CartContextProvider = ({ children }) => {
     });
   };
 
-  console.log(cartList);
+  const makeOrder = () => {
+    
+    
+    console.log(cartList)
+    const newOrder = {
+      name:"comprador3",
+      phone:"1234567",
+      email:"unmail@ejemplo.com"
+    }
+  
+    let pedido = {}
+  
+    pedido.buyer = newOrder
+    pedido.items = cartList.map(carItem => {
+
+      const id = carItem.id
+      const title = carItem.title
+      const price = carItem.price * carItem.cantidad
+
+      return {id,title,price};
+    })
+
+    pedido.date = firebase.firestore.Timestamp.fromDate(new Date());
+    pedido.total = sumarTotalPrecio();
+  
+    const db = getFirestore()
+    const order = db.collection("ordenes")
+    order.add(pedido)
+    .then(res =>(alert("añadido con exito, Se creo la orden con el id : "+res.id)))
+  }
+
+  
+  
 
   return (
     <CartContext.Provider
@@ -89,6 +129,9 @@ const CartContextProvider = ({ children }) => {
         decreaseItemQuantity,
         toogle,
         setToogle,
+        userInfo, 
+        setUserInfo,
+        makeOrder
       }}
     >
       {children}
