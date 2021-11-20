@@ -36,19 +36,19 @@ Se puede comenzar a usar de la siguiente manera, en CMD o consola ejecutar
 ```sh
 cd tiendaApp
 npm start 
-node app
+
 ```
 
 
-## Librerias
+## Librerías
 
 Tienda App usa las siguientes librerias para su funcionamiento
 
-| Libreria | Version |
-| ------ | ------ |
-| Bootstrap | "react-bootstrap": "^2.0.0-rc.1", |
-| Mui |"@mui/material": "^5.1.0", |
-| Firebase | "firebase": "^8.9.1", |
+| Librería | Version | Objetivo |
+| ------ | ------ |------ |
+| Bootstrap | "react-bootstrap": "^2.0.0-rc.1", | Interfaz gráfica 
+| Mui |"@mui/material": "^5.1.0", | Iconos y material
+| Firebase | "firebase": "^8.9.1", | Base de datos para development
 
 ## Licencia
 
