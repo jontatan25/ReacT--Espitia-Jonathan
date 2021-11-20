@@ -7,7 +7,7 @@
 
 [![N|Solid](https://cldup.com/dTxpPi9lDf.thumb.png)](https://angry-wescoff-a18dde.netlify.app/)
 
-Apptienda es una aplicacion que permite escoger un servicio fotografico, agregarla al carro y crear una orden personalizada en firebase.
+Apptienda es una aplicacion que permite escoger uno a varios servicios fotograficos, agregarlos al carro y crear una orden personalizada en firebase.
 
 
 ## Caracteristicas
